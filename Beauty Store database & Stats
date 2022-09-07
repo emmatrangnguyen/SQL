@@ -1,0 +1,48 @@
+-- Create a beauty store database
+
+CREATE TABLE beautyStore (id INTEGER PRIMARY KEY, item TEXT, brand TEXT, quatity INTEGER, price INTEGER, cost INTEGER);
+
+INSERT INTO beautyStore VALUES (1, "lipstick", "Chanel", 100, 40, 30);
+INSERT INTO beautyStore VALUES (2, "lip liner", "Mac", 100, 15, 11);
+INSERT INTO beautyStore VALUES (3, "blush", "Mac", 80, 25, 21);
+INSERT INTO beautyStore VALUES (4, "bronzer", "Artschool", 120, 22, 18);
+INSERT INTO beautyStore VALUES (5, "contour", "Artschool", 110, 21, 15);
+INSERT INTO beautyStore VALUES (6, "highlighter", "colorpop", 30, 8, 5);
+INSERT INTO beautyStore VALUES (7, "eyeshadow", "Too Faced", 70, 5, 53);
+INSERT INTO beautyStore VALUES (8, "eyeliner", "Maybelline", 200, 9, 5);
+INSERT INTO beautyStore VALUES (9, "mascara", "Kiss Me", 210, 15, 11);
+INSERT INTO beautyStore VALUES(10, "lash curler", "Kiss Me", 150, 12, 3);
+INSERT INTO beautyStore VALUES(11, "false lashes", "Adelle", 300, 7, 2);
+INSERT INTO beautyStore VALUES(12, "eye glitter", "Etude House", 250, 11, 8);
+INSERT INTO beautyStore VALUES(13, "eyebrow pencil", "Revlon", 150, 13, 9);
+INSERT INTO beautyStore VALUES(14, "loose powder", "Maybelline", 280, 12, 10);
+INSERT INTO beautyStore VALUES(15, " bb cream", "Purito", 400, 12, 10);
+
+-- Display the database ordered by price
+
+SELECT * FROM beautyStore;
+SELECT * FROM beautyStore ORDER BY price;
+
+-- What is the total of items, total cost and total price?
+
+SELECT SUM(quatity) FROM beautyStore;
+SELECT SUM(price*quatity) FROM beautyStore;
+SELECT SUM(cost*quatity) FROM beautyStore;
+
+-- Calculate the total of item group by brand
+
+SELECT brand, SUM(quatity) FROM beautyStore GROUP BY brand;
+
+-- Display item with the price>= 20
+
+SELECT * FROM beautyStore WHERE price >= 20; 
+SELECT * FROM beautyStore WHERE price >= 20 ORDER BY price;
+SELECT item, price FROM beautyStore WHERE price >= 20 ORDER BY price;
+
+-- Calculate the average price of items
+
+SELECT AVG(price) FROM beautyStore; 
+
+-- Calculate the average cost of items
+
+SELECT AVG(cost) FROM beautyStore;
